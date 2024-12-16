@@ -1,0 +1,977 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE2B4280-B688-4F29-A81A-0930633A7AC0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Hotel</RootNamespace>
+    <AssemblyName>Hotel</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
+    <Reference Include="Bunifu.UI.WinForms.1.5.3">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPanel">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRating">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuRating.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSeparator">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuShadowPanel">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
+      <HintPath>..\..\..\ProgrammingAdvices\Bunifu UI WinForms 5.0.3\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bookings\Controls\ucBookingAndReservationCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bookings\Controls\ucBookingAndReservationCardWithFilter.Designer.cs">
+      <DependentUpon>ucBookingAndReservationCardWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\Controls\ucBookingCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bookings\Controls\ucBookingCard.Designer.cs">
+      <DependentUpon>ucBookingCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\frmCheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\frmCheckOut.Designer.cs">
+      <DependentUpon>frmCheckOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\frmManageBookings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\frmManageBookings.Designer.cs">
+      <DependentUpon>frmManageBookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\frmShowBookingInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\frmShowBookingInfo.Designer.cs">
+      <DependentUpon>frmShowBookingInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\Guest Bookings\frmGuestBookingHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\Guest Bookings\frmGuestBookingHistory.Designer.cs">
+      <DependentUpon>frmGuestBookingHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmMaIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmMaIn.Designer.cs">
+      <DependentUpon>frmMaIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\clsFormat.cs" />
+    <Compile Include="Global\clsGlobal.cs" />
+    <Compile Include="Global\clsLogger.cs" />
+    <Compile Include="Global\clsUtil.cs" />
+    <Compile Include="Global\clsValidation.cs" />
+    <Compile Include="Guests\frmManageGuests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guests\frmManageGuests.Designer.cs">
+      <DependentUpon>frmManageGuests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\Controls\ucInvoiceCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Invoice\Controls\ucInvoiceCard.Designer.cs">
+      <DependentUpon>ucInvoiceCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice\frmPaymentInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice\frmPaymentInvoice.Designer.cs">
+      <DependentUpon>frmPaymentInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Controls\ucItemInfoCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\Controls\ucItemInfoCard.Designer.cs">
+      <DependentUpon>ucItemInfoCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Controls\ucItemShortCardWithQuantity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\Controls\ucItemShortCardWithQuantity.Designer.cs">
+      <DependentUpon>ucItemShortCardWithQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\frmAddEditItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\frmAddEditItem.Designer.cs">
+      <DependentUpon>frmAddEditItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\frmManageItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\frmManageItems.Designer.cs">
+      <DependentUpon>frmManageItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\frmShowItemInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\frmShowItemInfo.Designer.cs">
+      <DependentUpon>frmShowItemInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemTypes\frmAddEditItemType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemTypes\frmAddEditItemType.Designer.cs">
+      <DependentUpon>frmAddEditItemType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderItems\Controls\ucOrderItemsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrderItems\Controls\ucOrderItemsList.Designer.cs">
+      <DependentUpon>ucOrderItemsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderItems\frmShowOrderItemsInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderItems\frmShowOrderItemsInfo.Designer.cs">
+      <DependentUpon>frmShowOrderItemsInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\Controls\ucBookingOrdersCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Orders\Controls\ucBookingOrdersCard.Designer.cs">
+      <DependentUpon>ucBookingOrdersCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\Controls\ucOrderCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Orders\Controls\ucOrderCard.Designer.cs">
+      <DependentUpon>ucOrderCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\frmAddNewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders\frmAddNewOrder.Designer.cs">
+      <DependentUpon>frmAddNewOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\frmMangeOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders\frmMangeOrders.Designer.cs">
+      <DependentUpon>frmMangeOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\frmShowBookingOrdersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders\frmShowBookingOrdersList.Designer.cs">
+      <DependentUpon>frmShowBookingOrdersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\frmShowOrderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders\frmShowOrderInfo.Designer.cs">
+      <DependentUpon>frmShowOrderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\Controls\ucPaymentCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Payments\Controls\ucPaymentCard.Designer.cs">
+      <DependentUpon>ucPaymentCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\frmManagePayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\frmManagePayments.Designer.cs">
+      <DependentUpon>frmManagePayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\frmShowPaymentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\frmShowPaymentInfo.Designer.cs">
+      <DependentUpon>frmShowPaymentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\Controls\ucPersonCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ucPersonCard.Designer.cs">
+      <DependentUpon>ucPersonCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\Controls\ucPersonCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ucPersonCardWithFilter.Designer.cs">
+      <DependentUpon>ucPersonCardWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmAddEditPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmAddEditPerson.Designer.cs">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmFindPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmFindPerson.Designer.cs">
+      <DependentUpon>frmFindPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmManagePeople.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmManagePeople.Designer.cs">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmShowPersonInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmShowPersonInfo.Designer.cs">
+      <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\Controls\ucReservationsCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reservations\Controls\ucReservationsCard.Designer.cs">
+      <DependentUpon>ucReservationsCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmAddEditReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmAddEditReservation.Designer.cs">
+      <DependentUpon>frmAddEditReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmCheckIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmCheckIn.Designer.cs">
+      <DependentUpon>frmCheckIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmManageReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmManageReservation.Designer.cs">
+      <DependentUpon>frmManageReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmShowReservationInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmShowReservationInfo.Designer.cs">
+      <DependentUpon>frmShowReservationInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomTypes\Controls\ucRoomTypeCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoomTypes\Controls\ucRoomTypeCard.Designer.cs">
+      <DependentUpon>ucRoomTypeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomTypes\frmEditRoomType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomTypes\frmEditRoomType.Designer.cs">
+      <DependentUpon>frmEditRoomType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomTypes\frmManageRoomTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomTypes\frmManageRoomTypes.Designer.cs">
+      <DependentUpon>frmManageRoomTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomTypes\frmShowRoomTypeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomTypes\frmShowRoomTypeInfo.Designer.cs">
+      <DependentUpon>frmShowRoomTypeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Room\Controls\ucRoomCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Room\Controls\ucRoomCard.Designer.cs">
+      <DependentUpon>ucRoomCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Room\frmAddEditRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room\frmAddEditRoom.Designer.cs">
+      <DependentUpon>frmAddEditRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Room\frmManageRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room\frmManageRooms.Designer.cs">
+      <DependentUpon>frmManageRooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Room\frmShowRoomInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room\frmShowRoomInfo.Designer.cs">
+      <DependentUpon>frmShowRoomInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Controls\ucUserCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\Controls\ucUserCard.Designer.cs">
+      <DependentUpon>ucUserCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmAddEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmAddEditUser.Designer.cs">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmManageUsers.Designer.cs">
+      <DependentUpon>frmManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmShowUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmShowUserInfo.Designer.cs">
+      <DependentUpon>frmShowUserInfo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Bookings\Controls\ucBookingAndReservationCardWithFilter.resx">
+      <DependentUpon>ucBookingAndReservationCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\Controls\ucBookingCard.resx">
+      <DependentUpon>ucBookingCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\frmCheckOut.resx">
+      <DependentUpon>frmCheckOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\frmManageBookings.resx">
+      <DependentUpon>frmManageBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\frmShowBookingInfo.resx">
+      <DependentUpon>frmShowBookingInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\Guest Bookings\frmGuestBookingHistory.resx">
+      <DependentUpon>frmGuestBookingHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmMaIn.resx">
+      <DependentUpon>frmMaIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guests\frmManageGuests.resx">
+      <DependentUpon>frmManageGuests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\Controls\ucInvoiceCard.resx">
+      <DependentUpon>ucInvoiceCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice\frmPaymentInvoice.resx">
+      <DependentUpon>frmPaymentInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\Controls\ucItemInfoCard.resx">
+      <DependentUpon>ucItemInfoCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\Controls\ucItemShortCardWithQuantity.resx">
+      <DependentUpon>ucItemShortCardWithQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\frmAddEditItem.resx">
+      <DependentUpon>frmAddEditItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\frmManageItems.resx">
+      <DependentUpon>frmManageItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\frmShowItemInfo.resx">
+      <DependentUpon>frmShowItemInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemTypes\frmAddEditItemType.resx">
+      <DependentUpon>frmAddEditItemType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderItems\Controls\ucOrderItemsList.resx">
+      <DependentUpon>ucOrderItemsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderItems\frmShowOrderItemsInfo.resx">
+      <DependentUpon>frmShowOrderItemsInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\Controls\ucBookingOrdersCard.resx">
+      <DependentUpon>ucBookingOrdersCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\Controls\ucOrderCard.resx">
+      <DependentUpon>ucOrderCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\frmAddNewOrder.resx">
+      <DependentUpon>frmAddNewOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\frmMangeOrders.resx">
+      <DependentUpon>frmMangeOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\frmShowBookingOrdersList.resx">
+      <DependentUpon>frmShowBookingOrdersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\frmShowOrderInfo.resx">
+      <DependentUpon>frmShowOrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\Controls\ucPaymentCard.resx">
+      <DependentUpon>ucPaymentCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\frmManagePayments.resx">
+      <DependentUpon>frmManagePayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\frmShowPaymentInfo.resx">
+      <DependentUpon>frmShowPaymentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ucPersonCard.resx">
+      <DependentUpon>ucPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ucPersonCardWithFilter.resx">
+      <DependentUpon>ucPersonCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmAddEditPerson.resx">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmFindPerson.resx">
+      <DependentUpon>frmFindPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmManagePeople.resx">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmShowPersonInfo.resx">
+      <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\Controls\ucReservationsCard.resx">
+      <DependentUpon>ucReservationsCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmAddEditReservation.resx">
+      <DependentUpon>frmAddEditReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmCheckIn.resx">
+      <DependentUpon>frmCheckIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmManageReservation.resx">
+      <DependentUpon>frmManageReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmShowReservationInfo.resx">
+      <DependentUpon>frmShowReservationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomTypes\Controls\ucRoomTypeCard.resx">
+      <DependentUpon>ucRoomTypeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomTypes\frmEditRoomType.resx">
+      <DependentUpon>frmEditRoomType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomTypes\frmManageRoomTypes.resx">
+      <DependentUpon>frmManageRoomTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomTypes\frmShowRoomTypeInfo.resx">
+      <DependentUpon>frmShowRoomTypeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Room\Controls\ucRoomCard.resx">
+      <DependentUpon>ucRoomCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Room\frmAddEditRoom.resx">
+      <DependentUpon>frmAddEditRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Room\frmManageRooms.resx">
+      <DependentUpon>frmManageRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Room\frmShowRoomInfo.resx">
+      <DependentUpon>frmShowRoomInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\Controls\ucUserCard.resx">
+      <DependentUpon>ucUserCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmAddEditUser.resx">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmManageUsers.resx">
+      <DependentUpon>frmManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmShowUserInfo.resx">
+      <DependentUpon>frmShowUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hotel_Business\Hotel_Business.csproj">
+      <Project>{a909aff2-a8d4-4b03-852a-2b9198c207c5}</Project>
+      <Name>Hotel_Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down2 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down2 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Local 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ISIS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\active-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add--guest-companion-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-item-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-person-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-reservation-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booking-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booking-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookings-dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change-password-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change-password-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-in-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirm-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirm-password-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\country.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard-mian-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard-mian-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default-female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default-male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-reservation-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-user-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\details-reservation-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dining-room-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dining-room-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-reservation32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-reservation-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-reservation-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find-person-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gender-female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gender-male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guest-orders-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guest-orders-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guests-dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guests-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guests-list-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guests-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guests-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hotel-login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hotel-login-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hotel-login-white-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hotel-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImageSlide.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inactive-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Items.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list-payments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintenance-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\national-number.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-pet-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-smoking-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notes 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orders-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password-login-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payments-dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payments-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payments-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person-details-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person-edit-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reservation-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reservation-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reservations-dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-number.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rooms-dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-service-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-service-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-type.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-type-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-type-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show-reservation-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_out-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\username-login-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-main-purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-main-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add New User 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users 2 400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\call 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send email 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete 32 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddPerson 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_f4733339-7de1-49d9-8966-c87683f9d203.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_89778482-c8f8-4fe5-90e0-b98ebe50d547.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_out 32 -2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PesonName.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Name 48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard-mian-purple1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard-mian-white1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete 32 21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-user-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dining-room-main-purple1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dining-room-main-white1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guests-main-white1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu1_Icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down2 %281%2911.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room-type-main-purple1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard-mian-purple2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guests-list-1001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rooms-dashboard1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inactive-user1.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
